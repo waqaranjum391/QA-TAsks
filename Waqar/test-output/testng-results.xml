@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-11-25T06:02:15 EST" name="Default suite" finished-at="2022-11-25T06:03:05 EST" duration-ms="49923">
+    <groups>
+    </groups>
+    <test started-at="2022-11-25T06:02:15 EST" name="Default test" finished-at="2022-11-25T06:03:05 EST" duration-ms="49923">
+      <class name="Test_Casses.TestCases">
+        <test-method signature="Testcase1()[pri:0, instance:Test_Casses.TestCases@e1de817]" started-at="2022-11-25T06:02:16 EST" name="Testcase1" finished-at="2022-11-25T06:02:27 EST" duration-ms="11106" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Testcase1 -->
+        <test-method signature="Testcase2()[pri:1, instance:Test_Casses.TestCases@e1de817]" started-at="2022-11-25T06:02:27 EST" name="Testcase2" finished-at="2022-11-25T06:02:36 EST" duration-ms="9341" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Testcase2 -->
+        <test-method signature="Testcase3()[pri:2, instance:Test_Casses.TestCases@e1de817]" started-at="2022-11-25T06:02:36 EST" name="Testcase3" finished-at="2022-11-25T06:02:45 EST" duration-ms="9003" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Testcase3 -->
+        <test-method signature="Testcase4()[pri:3, instance:Test_Casses.TestCases@e1de817]" started-at="2022-11-25T06:02:45 EST" name="Testcase4" finished-at="2022-11-25T06:02:55 EST" duration-ms="10462" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Testcase4 -->
+        <test-method signature="Testcase5()[pri:4, instance:Test_Casses.TestCases@e1de817]" started-at="2022-11-25T06:02:55 EST" name="Testcase5" finished-at="2022-11-25T06:03:05 EST" duration-ms="9928" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Testcase5 -->
+      </class> <!-- Test_Casses.TestCases -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
