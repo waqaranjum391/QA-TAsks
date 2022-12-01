@@ -1,0 +1,131 @@
+package Practice_Lab_3;
+
+
+
+import static org.testng.Assert.assertEquals;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class Practice_Lab_3 {
+	
+	WebDriver driver=new ChromeDriver();
+	
+	@BeforeTest (description="Step 0 : Starting Chrome")
+	public void openChrome() throws InterruptedException{
+		
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\4368\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		driver.get("https://omayo.blogspot.in/");
+		Thread.sleep(3000);
+	}
+	
+	@AfterTest
+	public void quitChrome() throws InterruptedException {
+		
+		Thread.sleep(2000);
+		driver.quit();
+	}
+	
+	@Test(priority=1, description="Step 1 : Verify Input Value using Assertions")
+	public void Testcase1() throws InterruptedException {
+	
+		WebElement textAreaOne= driver.findElement(By.id("ta1"));
+		textAreaOne.sendKeys("Waqar Anjum");
+		
+		WebElement textAreaTwo=driver.findElement(By.xpath("//textarea[@rows=10 and @cols = 30]"));
+		
+		String TextAreaTwoContains = textAreaTwo.getText();
+		System.out.println("The Text area 2 contains:"+ TextAreaTwoContains);
+		
+		textAreaTwo.clear();
+		textAreaTwo.sendKeys("I like to play chess.");
+		
+		Assert.assertNotNull(textAreaOne);
+		
+		Thread.sleep(3000);
+			
+	}
+	
+	@Test(priority=2, description="Step 2 : Get data from table and print it on Console.")
+	public void Testcase2() throws InterruptedException {
+	
+		List<WebElement> allRows= driver.findElements(By.xpath("//table[@id=\"table1\"]"));
+		
+		for(WebElement row : allRows) {
+			
+			List<WebElement> cells = row.findElements(By.tagName("tr"));
+			
+			for(WebElement cell : cells) {
+				
+				System.out.println("\t"+cell.getText()+"\t");
+			}
+		}
+		
+		driver.findElement(By.xpath("//*[@id=\"HTML31\"]/div[1]/form/input[1]")).sendKeys("User_Name");
+		driver.findElement(By.xpath("//*[@id=\"HTML31\"]/div[1]/form/input[2]")).sendKeys("P4ssWorD");
+		driver.findElement(By.xpath("//*[@id=\"HTML31\"]/div[1]/form/button")).click();
+		
+		Thread.sleep(3000);
+		
+	}
+	
+	@Test(priority=3, description="Step 3 : Use Assertions and handle the alert ")
+	public void Testcase3() throws InterruptedException {
+		
+		WebElement FirstFrame = driver.findElement(By.id("iframe1"));
+		driver.switchTo().frame(FirstFrame);
+		Thread.sleep(2000);
+		
+		driver.switchTo().defaultContent();
+		Thread.sleep(2000);
+		
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+		
+		WebElement SecondFrame = driver.findElement(By.xpath("//*[@id=\"iframe2\"]"));
+		driver.switchTo().frame(SecondFrame);
+		Thread.sleep(2000);
+		
+		driver.switchTo().defaultContent();
+		Thread.sleep(2000);
+		
+		assertEquals(driver.getTitle(), "omayo (QAFox.com)");
+		
+		driver.findElement(By.name("userid")).sendKeys("User_Name");
+		driver.findElement(By.name("pswrd")).sendKeys("P4ssWorD");
+		driver.findElement(By.xpath("//*[@id=\"HTML42\"]/div[1]/form/input[3]")).click();
+		
+		driver.switchTo().alert().accept();
+		
+		Thread.sleep(3000);		
+		
+	}
+	
+	@Test(priority=4, description="Step 3 : Use Assertions and handle the alert ")
+	public void Testcase4() throws InterruptedException {
+		
+		driver.findElement(By.xpath("//*[@id=\"multiselect1\"]/option[3]")).click();
+		Thread.sleep(3000);
+		
+		driver.findElement(By.id("ironman4")).click();
+		Thread.sleep(3000);
+		
+		WebElement PreloadedTextBox=driver.findElement(By.id("textbox1"));
+		PreloadedTextBox.clear();
+		PreloadedTextBox.sendKeys("Hello World");
+		Thread.sleep(3000);
+		
+		driver.findElement(By.id("but2")).click();
+		Thread.sleep(3000);
+		
+		
+	}
+	
+}
